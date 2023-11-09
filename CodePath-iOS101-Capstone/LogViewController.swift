@@ -9,6 +9,7 @@ import UIKit
 
 class LogViewController: UIViewController {
 
+    @IBOutlet weak var newSplitView: UIView!
     @IBOutlet weak var tableView: UITableView!
     // The main tasks array initialized with a default value of an empty array.
     var splits = [Split]()
@@ -18,6 +19,7 @@ class LogViewController: UIViewController {
 
         // Hide top cell separator
         tableView.tableHeaderView = UIView()
+        tableView.tableFooterView = newSplitView
 
         // Set table view data source
         // Needed for standard table view setup:
@@ -26,6 +28,7 @@ class LogViewController: UIViewController {
         // Also for swipe to delete row:
         //    - tableView(_:commit:forRowAt:)
         tableView.dataSource = self
+        
 
         // Set table view delegate
         // Needed to detect row selection: tableView(_:didSelectRowAt:)
@@ -38,7 +41,6 @@ class LogViewController: UIViewController {
 
         refreshSplits()
     }
-    
     @IBAction func didTapNewSplitButton(_ sender: Any) {
         print("New Split")
         performSegue(withIdentifier: "ComposeSegue", sender: nil)
