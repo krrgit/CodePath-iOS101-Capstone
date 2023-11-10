@@ -14,7 +14,7 @@ struct Split: Codable {
     
     init(title: String, exercises: [String]? = nil) {
         self.title = title
-        self.exercises = exercises ?? ["Start Date"]
+        self.exercises = exercises ?? ["Start Date", "Log #", "Exer 1", "Exer 2", "Exer 3"]
     }
     
     // An id (Universal Unique Identifier) used to identify a task.
