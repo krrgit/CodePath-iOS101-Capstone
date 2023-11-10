@@ -91,9 +91,7 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 
 
 ## Wireframes
-
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://github.com/krrgit/CodePath-iOS101-Capstone/blob/main/wireframe.png" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
