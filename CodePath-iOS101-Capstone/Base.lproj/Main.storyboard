@@ -17,74 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="q4o-ZL-yM3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="q4o-ZL-yM3">
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SplitCell" id="Jfe-9F-V6v" customClass="SplitCell" customModule="CodePath_iOS101_Capstone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SplitCell" rowHeight="103" id="Jfe-9F-V6v" customClass="SplitCell" customModule="CodePath_iOS101_Capstone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jfe-9F-V6v" id="Zp2-cK-4Hd">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I51-KH-9QT">
-                                                    <rect key="frame" x="20.000000000000007" y="21" width="88.666666666666686" height="20.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Split Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I51-KH-9QT">
+                                                    <rect key="frame" x="20" y="11" width="353" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NYm-TD-cro">
-                                                    <rect key="frame" x="20" y="48.333333333333329" width="373" height="151.66666666666669"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01a-Pi-suS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="440" height="150"/>
-                                                            <subviews>
-                                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iQD-oB-Zq2">
-                                                                    <rect key="frame" x="67" y="-7" width="365" height="164"/>
-                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="164" id="OQG-4b-NvA"/>
-                                                                        <constraint firstAttribute="width" constant="500" id="UIf-9L-3Gd"/>
-                                                                    </constraints>
-                                                                    <view key="tableFooterView" contentMode="scaleToFill" id="Xi4-QH-r8h">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="365" height="44"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    </view>
-                                                                </tableView>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="150" id="L5i-Jf-SDW"/>
-                                                                <constraint firstAttribute="width" constant="440" id="ziX-cb-iCn"/>
-                                                            </constraints>
-                                                        </view>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="01a-Pi-suS" secondAttribute="trailing" id="43y-Jn-zAW"/>
-                                                        <constraint firstAttribute="bottom" secondItem="01a-Pi-suS" secondAttribute="bottom" id="7p6-c2-esX"/>
-                                                        <constraint firstItem="01a-Pi-suS" firstAttribute="top" secondItem="NYm-TD-cro" secondAttribute="top" id="gvK-dW-Gy9"/>
-                                                        <constraint firstItem="01a-Pi-suS" firstAttribute="leading" secondItem="NYm-TD-cro" secondAttribute="leading" id="q4B-ln-Zeq"/>
-                                                        <constraint firstItem="01a-Pi-suS" firstAttribute="height" secondItem="hYW-df-Yci" secondAttribute="height" id="w05-n5-AEC"/>
-                                                    </constraints>
-                                                    <viewLayoutGuide key="contentLayoutGuide" id="hYW-df-Yci"/>
-                                                    <viewLayoutGuide key="frameLayoutGuide" id="d5Q-dB-72p"/>
-                                                </scrollView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="NYm-TD-cro" firstAttribute="top" secondItem="I51-KH-9QT" secondAttribute="bottom" constant="7" id="34k-DE-CSw"/>
-                                                <constraint firstAttribute="trailing" secondItem="NYm-TD-cro" secondAttribute="trailing" id="5pr-Ah-lEa"/>
-                                                <constraint firstItem="NYm-TD-cro" firstAttribute="leading" secondItem="Zp2-cK-4Hd" secondAttribute="leading" constant="20" symbolic="YES" id="LZ7-bd-nOW"/>
-                                                <constraint firstItem="I51-KH-9QT" firstAttribute="top" secondItem="Zp2-cK-4Hd" secondAttribute="topMargin" constant="10" id="Qea-z4-fXr"/>
-                                                <constraint firstAttribute="bottom" secondItem="NYm-TD-cro" secondAttribute="bottom" id="Rk3-Vb-6TD"/>
-                                                <constraint firstItem="I51-KH-9QT" firstAttribute="leading" secondItem="Zp2-cK-4Hd" secondAttribute="leadingMargin" id="mmE-kl-cn3"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="logHeaderView" destination="Xi4-QH-r8h" id="F5G-oA-BcX"/>
-                                            <outlet property="logTableContainerView" destination="01a-Pi-suS" id="dQZ-1v-Itu"/>
-                                            <outlet property="logTableContainerWidthConstraint" destination="ziX-cb-iCn" id="jbU-7M-cDa"/>
-                                            <outlet property="logTableView" destination="iQD-oB-Zq2" id="aIW-6h-wDe"/>
                                             <outlet property="titleLabel" destination="I51-KH-9QT" id="T6p-U3-bfB"/>
                                         </connections>
                                     </tableViewCell>
