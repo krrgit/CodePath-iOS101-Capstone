@@ -11,14 +11,34 @@ struct Split: Codable {
     var title: String
     
     var exercises: [String]
-    
-    init(title: String, exercises: [String]? = nil) {
-        self.title = title
-        self.exercises = exercises ?? ["Start Date"]
-    }
+    var columns: [Column]
     
     // An id (Universal Unique Identifier) used to identify a task.
     var id: String = UUID().uuidString
+    
+    
+    enum CodingKeys: String, CodingKey {
+            case title
+            case exercises
+            case columns
+            case id
+        }
+    
+    init(title: String, exercises: [String]? = nil, columns: [Column]? = nil) {
+        self.title = title
+        self.exercises = exercises ?? ["Start Date"]
+        self.columns = [Column(title: "Start Date"), Column(title: "Log #"),Column(title: "Exer 1")]
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        title = try container.decode(String.self, forKey: .title)
+        exercises = (try? container.decode([String].self, forKey: .exercises)) ?? ["Start Date"]
+        columns = (try? container.decode([Column].self, forKey: .columns)) ?? [Column(title: "Start Date"), Column(title: "Log #"), Column(title: "Exer 1")]
+        id = (try? container.decode(String.self, forKey: .id)) ?? UUID().uuidString
+    }
+
 }
 
 // MARK: - Task + UserDefaults

@@ -41,6 +41,7 @@ class LogViewController: UIViewController {
 
         refreshSplits()
     }
+    
     @IBAction func didTapNewSplitButton(_ sender: Any) {
         print("New Split")
         performSegue(withIdentifier: "ComposeSegue", sender: nil)
@@ -79,7 +80,7 @@ class LogViewController: UIViewController {
         print("refresh", splits)
         // 1.
         var splits = Split.getSplits()
-        print("new splits from refresh",splits)
+//        print("new splits from refresh",splits)
 //        // 2.
 //        tasks.sort { lhs, rhs in
 //            if lhs.isComplete && rhs.isComplete {

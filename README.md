@@ -49,24 +49,27 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 ### 2. Screen Archetypes
 
 - [ ] [Log Screen]
-* User can add the different days of their routine
-* User can input a log for a certain day
-* User can input the set, reps, and weight for a exercise
-* User can delete a log of a certain day
-* User can add notes on a certain workout log
-* User can add comments to a log 
+* [x] User can add the different days of their routine
+* [x] User can remove splits
+* [ ] User can input a log for a certain day
+* [ ] User can input the set, reps, and weight for a exercise
+* [ ] User can delete a log of a certain day
+* [ ] User can add notes on a certain workout log
+* [ ] User can add comments to a log 
 
 - [ ] [Compose Split Screen]
-* User can add a new split
-* User can edit a current split
-* User can add/remove/disable exercises in the split
+* [x] User can name a split
+* [x] User can add a new split
+* [ ] User can edit a current split
+* [ ] User can add exercises to a split
+* [ ] User can remove exercises from a split
 
 - [ ] [Graph Screen]
-* User can view their progress as a graph
-* User can change the display of the graph (Reps x Weights, Weights)
+* [ ] User can view their progress as a graph
+* [ ] User can change the display of the graph (Reps x Weights, Weights)
 
 - [ ] [Statistics Screen]
-* User can view statistics about their workout over time
+* [ ] User can view statistics about their workout over time
 
 ### 3. Navigation
 

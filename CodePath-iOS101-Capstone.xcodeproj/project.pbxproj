@@ -11,6 +11,9 @@
 		0A6100462AFB8391001B6065 /* SplitComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6100452AFB8391001B6065 /* SplitComposeViewController.swift */; };
 		0A6100482AFB8589001B6065 /* Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6100472AFB8589001B6065 /* Split.swift */; };
 		0A61004C2AFB8D3D001B6065 /* SplitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A61004B2AFB8D3D001B6065 /* SplitCell.swift */; };
+		0A6100522AFEE085001B6065 /* LogCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6100512AFEE085001B6065 /* LogCollectionViewController.swift */; };
+		0A6100562AFEE36E001B6065 /* ColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6100552AFEE36E001B6065 /* ColumnCell.swift */; };
+		0A6100582AFEE41F001B6065 /* Column.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6100572AFEE41F001B6065 /* Column.swift */; };
 		0AAA92602AFB6E7C00295502 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAA925F2AFB6E7C00295502 /* AppDelegate.swift */; };
 		0AAA92622AFB6E7C00295502 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAA92612AFB6E7C00295502 /* SceneDelegate.swift */; };
 		0AAA92642AFB6E7C00295502 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAA92632AFB6E7C00295502 /* ViewController.swift */; };
@@ -24,6 +27,9 @@
 		0A6100452AFB8391001B6065 /* SplitComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitComposeViewController.swift; sourceTree = "<group>"; };
 		0A6100472AFB8589001B6065 /* Split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Split.swift; sourceTree = "<group>"; };
 		0A61004B2AFB8D3D001B6065 /* SplitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitCell.swift; sourceTree = "<group>"; };
+		0A6100512AFEE085001B6065 /* LogCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCollectionViewController.swift; sourceTree = "<group>"; };
+		0A6100552AFEE36E001B6065 /* ColumnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnCell.swift; sourceTree = "<group>"; };
+		0A6100572AFEE41F001B6065 /* Column.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Column.swift; sourceTree = "<group>"; };
 		0AAA925C2AFB6E7C00295502 /* CodePath-iOS101-Capstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CodePath-iOS101-Capstone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AAA925F2AFB6E7C00295502 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AAA92612AFB6E7C00295502 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +74,9 @@
 				0AAA92612AFB6E7C00295502 /* SceneDelegate.swift */,
 				0AAA92632AFB6E7C00295502 /* ViewController.swift */,
 				0AAA92652AFB6E7C00295502 /* Main.storyboard */,
+				0A6100552AFEE36E001B6065 /* ColumnCell.swift */,
+				0A6100512AFEE085001B6065 /* LogCollectionViewController.swift */,
+				0A6100572AFEE41F001B6065 /* Column.swift */,
 				0A61004B2AFB8D3D001B6065 /* SplitCell.swift */,
 				0A6100452AFB8391001B6065 /* SplitComposeViewController.swift */,
 				0A6100412AFB7237001B6065 /* LogViewController.swift */,
@@ -151,8 +160,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AAA92642AFB6E7C00295502 /* ViewController.swift in Sources */,
+				0A6100582AFEE41F001B6065 /* Column.swift in Sources */,
 				0A61004C2AFB8D3D001B6065 /* SplitCell.swift in Sources */,
 				0AAA92602AFB6E7C00295502 /* AppDelegate.swift in Sources */,
+				0A6100522AFEE085001B6065 /* LogCollectionViewController.swift in Sources */,
+				0A6100562AFEE36E001B6065 /* ColumnCell.swift in Sources */,
 				0A6100462AFB8391001B6065 /* SplitComposeViewController.swift in Sources */,
 				0AAA92622AFB6E7C00295502 /* SceneDelegate.swift in Sources */,
 				0A6100482AFB8589001B6065 /* Split.swift in Sources */,
