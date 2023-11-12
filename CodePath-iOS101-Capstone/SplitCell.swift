@@ -69,7 +69,7 @@ extension SplitCell: UICollectionViewDelegateFlowLayout {
             return CGSize(width:64, height:128)
 
         }
-        return CGSize(width:128, height:128)
+        return CGSize(width:110, height:128)
     }
     
 }
