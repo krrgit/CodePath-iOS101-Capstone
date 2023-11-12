@@ -51,17 +51,17 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColumnCell" id="DMr-Io-7Gk" customClass="ColumnCell" customModule="CodePath_iOS101_Capstone" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="125"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="137"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ekT-YW-i0J">
-                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="125"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="137"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqD-nC-GAG">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="20"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="32"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thx-LR-Xbm">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="20"/>
+                                                                                <rect key="frame" x="4" y="6" width="120" height="20"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -69,15 +69,15 @@
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
-                                                                            <constraint firstItem="thx-LR-Xbm" firstAttribute="top" secondItem="sqD-nC-GAG" secondAttribute="top" id="48D-t7-8Ny"/>
+                                                                            <constraint firstItem="thx-LR-Xbm" firstAttribute="top" secondItem="sqD-nC-GAG" secondAttribute="top" constant="6" id="48D-t7-8Ny"/>
                                                                             <constraint firstItem="thx-LR-Xbm" firstAttribute="centerY" secondItem="sqD-nC-GAG" secondAttribute="centerY" id="9YY-cJ-M3t"/>
-                                                                            <constraint firstItem="thx-LR-Xbm" firstAttribute="leading" secondItem="sqD-nC-GAG" secondAttribute="leading" id="Bk3-d2-KxQ"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="thx-LR-Xbm" secondAttribute="trailing" id="Cmc-DO-Afm"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="thx-LR-Xbm" secondAttribute="bottom" id="UNY-HR-Swt"/>
+                                                                            <constraint firstItem="thx-LR-Xbm" firstAttribute="leading" secondItem="sqD-nC-GAG" secondAttribute="leading" constant="4" id="Bk3-d2-KxQ"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="thx-LR-Xbm" secondAttribute="trailing" constant="4" id="Cmc-DO-Afm"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="thx-LR-Xbm" secondAttribute="bottom" constant="6" id="UNY-HR-Swt"/>
                                                                         </constraints>
                                                                     </view>
                                                                     <tableView clipsSubviews="YES" tag="1010" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="30" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="530-Vl-kwV">
-                                                                        <rect key="frame" x="0.0" y="21" width="128" height="104"/>
+                                                                        <rect key="frame" x="0.0" y="33" width="128" height="104"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="104" id="1jJ-SF-SVK"/>
