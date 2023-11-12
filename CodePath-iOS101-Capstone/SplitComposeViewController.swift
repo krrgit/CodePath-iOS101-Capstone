@@ -31,11 +31,11 @@ class SplitComposeViewController: UIViewController {
         columnsTableView.isEditing = true
         columnsTableView.dataSource = self
         columnsTableView.tableFooterView = addExerciseButton
+        columnsTableView.layer.cornerRadius = 10.0
         
         if splitToEdit != nil {
             self.title = "Edit Split"
         }
-        
     }
     
     
@@ -93,7 +93,7 @@ class SplitComposeViewController: UIViewController {
     @IBAction func didTapAddExerciseButton(_ sender: Any) {
         UpdateColumnNames()
         columns.append(Column(title:""))
-        columnsTableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        columnsTableView.reloadSections(IndexSet(integer: 0), with: .none)
     }
     
     

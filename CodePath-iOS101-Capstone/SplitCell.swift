@@ -55,6 +55,10 @@ extension SplitCell: UICollectionViewDelegate{
 extension SplitCell: UICollectionViewDelegateFlowLayout {
     // Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if (split.columns[indexPath.row].title == "Log #") {
+            return CGSize(width:64, height:128)
+
+        }
         return CGSize(width:128, height:128)
     }
     
