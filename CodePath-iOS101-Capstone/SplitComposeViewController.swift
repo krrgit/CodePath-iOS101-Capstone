@@ -14,8 +14,8 @@ class SplitComposeViewController: UIViewController {
     @IBOutlet weak var addExerciseButton: UIView!
     
     var splitToEdit: Split?
-    // When a new task is created (or an existing task is edited), this closure is called
-    // passing in the task as an argument so it can be used by whoever presented the TaskComposeViewController.
+    // When a new split is created (or an existing task is edited), this closure is called
+    // passing in the split as an argument so it can be used by whoever presented the SplitComposeViewController.
     var onComposeSplit: ((Split) -> Void)? = nil
     
     var columns: [Column] = [Column(title: "Start Date"), Column(title: "Log #"), Column(title: "Exer 1")]
@@ -23,10 +23,19 @@ class SplitComposeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Update the columns if splitToEdit exists
+        columns = splitToEdit?.columns ?? columns
+        
+        // Update Table values
         columnsTableView.isEditing = true
         columnsTableView.dataSource = self
         columnsTableView.tableFooterView = addExerciseButton
+        
+        if splitToEdit != nil {
+            self.title = "Edit Split"
+        }
+        
     }
     
     
@@ -41,6 +50,7 @@ class SplitComposeViewController: UIViewController {
             }
         }
     }
+
     
     @IBAction func didTapCancelButton(_ sender: Any) {
         // Dismiss the TaskComposeViewController.
@@ -120,9 +130,9 @@ extension SplitComposeViewController: UITableViewDataSource, UITableViewDelegate
         // 1.
         let cell = tableView.dequeueReusableCell(withIdentifier: "ColumnNameCell", for: indexPath) as! ColumnNameCell
         // 2.
-        let column = columns[indexPath.row].title
+        let columnName = columns[indexPath.row].title
         // 3.
-        cell.configure(title: column)
+        cell.configure(title: columnName)
         // 4.
         return cell
     }

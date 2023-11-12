@@ -28,6 +28,7 @@ class LogViewController: UIViewController {
         // Also for swipe to delete row:
         //    - tableView(_:commit:forRowAt:)
         tableView.dataSource = self
+        tableView.delegate = self
         
 
         // Set table view delegate
@@ -61,7 +62,6 @@ class LogViewController: UIViewController {
 
                 // 3.
                 composeViewController.splitToEdit = sender as? Split
-
                 // 4.
                 // i.
                 // ii.
@@ -79,23 +79,7 @@ class LogViewController: UIViewController {
     private func refreshSplits() {
         print("refresh", splits)
         // 1.
-        var splits = Split.getSplits()
-//        print("new splits from refresh",splits)
-//        // 2.
-//        tasks.sort { lhs, rhs in
-//            if lhs.isComplete && rhs.isComplete {
-//                // i.
-//                return lhs.completedDate! < rhs.completedDate!
-//            } else if !lhs.isComplete && !rhs.isComplete {
-//                // ii.
-//                return lhs.createdDate < rhs.createdDate
-//            } else {
-//                // iii.
-//                return !lhs.isComplete && rhs.isComplete
-//            }
-//        }
-//        // 3.
-        self.splits = splits
+        self.splits = Split.getSplits()
 //        // 4.
 //        emptyStateLabel.isHidden = !tasks.isEmpty
 //        // 5.
@@ -147,4 +131,18 @@ extension LogViewController: UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
+}
+
+extension LogViewController: UITableViewDelegate {
+    // Select Split to Edit
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected Split")
+        // 1.
+        tableView.deselectRow(at: indexPath, animated: false)
+        // 2.
+        let selectedSplit = splits[indexPath.row]
+        // 3.
+        performSegue(withIdentifier: "ComposeSegue", sender: selectedSplit)
+    }
+    
 }
