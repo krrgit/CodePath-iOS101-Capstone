@@ -48,7 +48,7 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 
 ### 2. Screen Archetypes
 
-- [ ] [Log Screen]
+- [x] [Log Screen]
 * [x] User can add the different days of their routine
 * [x] User can remove splits
 * [ ] User can input a log for a certain day
@@ -57,7 +57,7 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 * [ ] User can add notes on a certain workout log
 * [ ] User can add comments to a log 
 
-- [ ] [Compose Split Screen]
+- [x] [Compose Split Screen]
 * [x] User can name a split
 * [x] User can add a new split
 * [ ] User can edit a current split
