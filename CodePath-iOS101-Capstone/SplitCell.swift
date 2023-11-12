@@ -53,6 +53,7 @@ extension SplitCell: UICollectionViewDelegate{
 }
 
 extension SplitCell: UICollectionViewDelegateFlowLayout {
+    // Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width:128, height:128)
     }
@@ -60,6 +61,7 @@ extension SplitCell: UICollectionViewDelegateFlowLayout {
 }
 
 extension SplitCell: UICollectionViewDataSource {
+    // # of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return split.columns.count
     }

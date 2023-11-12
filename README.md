@@ -61,9 +61,10 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 - [x] [Compose Split Screen]
 * [x] User can name a split
 * [x] User can add a new split
-* [ ] User can edit a current split
-* [ ] User can add exercises to a split
-* [ ] User can remove exercises from a split
+* [x] User can edit a current split
+* [x] User can add exercises to a split
+* [x] User can remove exercises from a split
+* [x] User can rearrange exercises in a split
 
 - [ ] [Graph Screen]
 * [ ] User can view their progress as a graph

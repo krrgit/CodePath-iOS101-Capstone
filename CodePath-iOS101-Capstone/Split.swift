@@ -27,7 +27,7 @@ struct Split: Codable {
     init(title: String, exercises: [String]? = nil, columns: [Column]? = nil) {
         self.title = title
         self.exercises = exercises ?? ["Start Date"]
-        self.columns = [Column(title: "Start Date"), Column(title: "Log #"),Column(title: "Exer 1")]
+        self.columns = columns ?? [Column(title: "Start Date"), Column(title: "Log #"),Column(title: "Exer 1")]
     }
     
     init(from decoder: Decoder) throws {
