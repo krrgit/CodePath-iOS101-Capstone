@@ -60,7 +60,7 @@ extension Split {
     // Retrieve an array of saved tasks from UserDefaults.
     static func getSplits() -> [Split] {
         
-        print("try get splits")
+//        print("try get splits")
         // 1.
         let defaults = UserDefaults.standard
         // 2.
@@ -68,11 +68,11 @@ extension Split {
             // 3.
             let decodedSplits = try! JSONDecoder().decode([Split].self, from: data)
             // 4.
-            print("get splits", decodedSplits)
+//            print("get splits", decodedSplits)
             return decodedSplits
         }
         
-        print("fail get splits")
+//        print("fail get splits")
         return [] // 👈 replace with returned saved tasks
     }
 
@@ -84,6 +84,7 @@ extension Split {
             splits.remove(at: index)
             splits.insert(self, at: index)
         } else {
+            print("ADD", self)
             splits.append(self)
         }
         

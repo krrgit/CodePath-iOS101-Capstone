@@ -21,6 +21,7 @@
 		0AAA92692AFB6E7D00295502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AAA92682AFB6E7D00295502 /* Assets.xcassets */; };
 		0AAA926C2AFB6E7D00295502 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AAA926A2AFB6E7D00295502 /* LaunchScreen.storyboard */; };
 		0AB0BD272B0007F800C69BFB /* ColumnNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0BD262B0007F800C69BFB /* ColumnNameCell.swift */; };
+		0AB0BD292B009A1500C69BFB /* LogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB0BD282B009A1500C69BFB /* LogCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		0AAA926B2AFB6E7D00295502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AAA926D2AFB6E7D00295502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AB0BD262B0007F800C69BFB /* ColumnNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnNameCell.swift; sourceTree = "<group>"; };
+		0AB0BD282B009A1500C69BFB /* LogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				0AAA92632AFB6E7C00295502 /* ViewController.swift */,
 				0AAA92652AFB6E7C00295502 /* Main.storyboard */,
 				0A6100552AFEE36E001B6065 /* ColumnCell.swift */,
+				0AB0BD282B009A1500C69BFB /* LogCell.swift */,
 				0A6100512AFEE085001B6065 /* LogCollectionViewController.swift */,
 				0A6100572AFEE41F001B6065 /* Column.swift */,
 				0A61004B2AFB8D3D001B6065 /* SplitCell.swift */,
@@ -164,6 +167,7 @@
 			files = (
 				0AAA92642AFB6E7C00295502 /* ViewController.swift in Sources */,
 				0A6100582AFEE41F001B6065 /* Column.swift in Sources */,
+				0AB0BD292B009A1500C69BFB /* LogCell.swift in Sources */,
 				0A61004C2AFB8D3D001B6065 /* SplitCell.swift in Sources */,
 				0AB0BD272B0007F800C69BFB /* ColumnNameCell.swift in Sources */,
 				0AAA92602AFB6E7C00295502 /* AppDelegate.swift in Sources */,

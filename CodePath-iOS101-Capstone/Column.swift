@@ -14,7 +14,7 @@ struct Column: Codable {
     
     init(title: String, logs: [String]? = nil) {
         self.title = title
-        self.logs = logs ?? []
+        self.logs = logs ?? ["1", "0"]
     }
     
 }

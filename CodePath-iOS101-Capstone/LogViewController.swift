@@ -9,6 +9,7 @@ import UIKit
 
 class LogViewController: UIViewController {
 
+    @IBOutlet weak var addLogButton: UIBarButtonItem!
     @IBOutlet weak var newSplitView: UIView!
     @IBOutlet weak var tableView: UITableView!
     // The main tasks array initialized with a default value of an empty array.
@@ -40,6 +41,21 @@ class LogViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        refreshSplits()
+    }
+    
+    
+    @IBAction func didTapNewLogButton(_ sender: Any) {
+        AddLogToSplits()
+    }
+    
+    func AddLogToSplits() {
+        for s in 0..<splits.count {
+            for c in 0..<splits[s].columns.count {
+                splits[s].columns[c].logs.insert("0", at: 0)
+            }
+        }
+        Split.save(splits)
         refreshSplits()
     }
     
@@ -77,7 +93,7 @@ class LogViewController: UIViewController {
     }
     
     private func refreshSplits() {
-        print("refresh", splits)
+        print("refresh")
         // 1.
         self.splits = Split.getSplits()
 //        // 4.

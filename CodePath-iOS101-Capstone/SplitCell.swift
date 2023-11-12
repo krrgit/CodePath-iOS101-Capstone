@@ -7,7 +7,21 @@
 
 import UIKit
 
-class SplitCell: UITableViewCell {
+protocol LogScrollDelegate: AnyObject {
+    func logViewDidScroll(_ tableView: UITableView, yOffset: Double)
+}
+
+
+class SplitCell: UITableViewCell, LogScrollDelegate {
+    // Syncronizes the scrolls between the log tables
+    func logViewDidScroll(_ tableView: UITableView, yOffset: Double) {
+        for cell in collectionView.visibleCells {
+            if var column = cell as? ColumnCell {
+                column.tableView.contentOffset.y = yOffset
+            }
+        }
+    }
+    
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -48,10 +62,6 @@ class SplitCell: UITableViewCell {
     
 }
 
-extension SplitCell: UICollectionViewDelegate{
-    
-}
-
 extension SplitCell: UICollectionViewDelegateFlowLayout {
     // Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -77,9 +87,30 @@ extension SplitCell: UICollectionViewDataSource {
         // Configure the cell
         let column = split.columns[indexPath.row]
         cell.configure(with: column)
+        
+        // Subscribe scrollDelegate to all the scroll events of all tables
+        cell.scrollDelegate = self
+
         return cell
     }
     
     
 }
 
+extension SplitCell: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("Scroll")
+        // Here, you get the vertical offset of the collection view's content
+        let yOffset = scrollView.contentOffset.y
+        
+        
+        // Iterate through visible cells in the collection view
+        for cell in collectionView.visibleCells {
+            // Assuming your table view is a subview of the collection view cell
+            if let tableView = cell.contentView.viewWithTag(1010) as? UITableView {
+                // Update the content offset of the table view to sync with the collection view
+                tableView.contentOffset.y = yOffset
+            }
+        }
+    }
+}
