@@ -115,8 +115,8 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
-  ### Reflection-On-Progress
-  * Added Log Screen and Compose Split Screen.
-  * Added some functionality listed in the screen archetypes section.
-  * Had difficulty with layout and iterating the design in order to better serve the functionality of the app.
-  * What's next: add the rest of the required functionality of the app, and optional ones if time permits.
+### Reflection-On-Progress
+* Added Log Screen and Compose Split Screen.
+* Added some functionality listed in the screen archetypes section.
+* Had difficulty with layout and iterating the design in order to better serve the functionality of the app.
+* What's next: add the rest of the required functionality of the app, and optional ones if time permits.
