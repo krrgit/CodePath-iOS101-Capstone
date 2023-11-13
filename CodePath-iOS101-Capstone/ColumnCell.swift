@@ -38,11 +38,13 @@ class ColumnCell: UICollectionViewCell, UITableViewDelegate, LogUpdateDelegate {
         self.column = column
         titleLabel.text = column.title
         
+        tableView.reloadSections(IndexSet(integer: 0), with: .none)
+        
     }
     
     func reloadLogs() {
         print("Reload Logs! count: ", column.logs.count)
-        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        tableView.reloadSections(IndexSet(integer: 0), with: .none)
     }
 }
 

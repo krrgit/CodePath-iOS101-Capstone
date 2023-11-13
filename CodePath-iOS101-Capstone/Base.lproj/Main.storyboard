@@ -243,7 +243,7 @@
                                 <rect key="frame" x="20" y="148.66666666666669" width="353" height="673.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="ePA-Cd-dQC">
-                                    <rect key="frame" x="0.0" y="121" width="353" height="62"/>
+                                    <rect key="frame" x="0.0" y="121.33333206176758" width="353" height="62"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fx-IC-SZY" userLabel="Add Split">
@@ -272,14 +272,14 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ColumnNameCell" id="dPy-nX-54Q" customClass="ColumnNameCell" customModule="CodePath_iOS101_Capstone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="353" height="43"/>
+                                        <rect key="frame" x="0.0" y="50" width="353" height="43.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dPy-nX-54Q" id="vuJ-Zq-MRg">
-                                            <rect key="frame" x="0.0" y="0.0" width="353" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="43.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Exercise" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="IbS-CK-Om4">
-                                                    <rect key="frame" x="20" y="12" width="313" height="19"/>
+                                                    <rect key="frame" x="20" y="11.999999999999998" width="313" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -317,7 +317,7 @@
                                 <action selector="didTapCancelButton:" destination="284-yo-tIm" id="hYg-Cl-6v2"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="AOn-Gh-JZw">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="AOn-Gh-JZw">
                             <connections>
                                 <action selector="didTapDoneButton:" destination="284-yo-tIm" id="ML6-Xc-oGR"/>
                             </connections>

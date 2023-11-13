@@ -28,14 +28,6 @@ class SplitCell: UITableViewCell, LogScrollDelegate {
     
     var split: Split!
     
-    func configure(with split: Split) {
-        collectionView.dataSource = self
-        // 1.
-        self.split = split
-        // 2.
-        update(with: split)
-    }
-    
     override func awakeFromNib() {
         // Set the layout of the collection view
         let flowLayout = UICollectionViewFlowLayout()
@@ -50,7 +42,23 @@ class SplitCell: UITableViewCell, LogScrollDelegate {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+
+    func reloadColumns() {
+//        collectionView.reloadSections(IndexSet(integer: 0))
+    }
     
+    
+    func configure(with split: Split) {
+        collectionView.dataSource = self
+        // 1.
+        self.split = split
+        // 2.
+        update(with: split)
+        
+        collectionView.reloadSections(IndexSet(integer: 0))
+    }
+    
+       
     private func update(with split: Split) {
         // 1.
         titleLabel.text = split.title
@@ -76,6 +84,7 @@ extension SplitCell: UICollectionViewDelegateFlowLayout {
 extension SplitCell: UICollectionViewDataSource {
     // # of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("split columns count: ", split.columns.count)
         return split.columns.count
     }
     

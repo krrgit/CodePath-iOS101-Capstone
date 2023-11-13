@@ -75,9 +75,12 @@ class LogViewController: UIViewController {
                 splitCell.configure(with: splits[s])
                 
                 for (c,subCell) in splitCell.collectionView.visibleCells.enumerated() {
+                    splitCell.configure(with: splits[s])
+//                    splitCell.reloadColumns()
+                    
                     if let columnCell = subCell as? ColumnCell {
                         columnCell.configure(with: splits[s].columns[c])
-                        columnCell.reloadLogs()
+//                        columnCell.reloadLogs()
                     }
                 }
             }
