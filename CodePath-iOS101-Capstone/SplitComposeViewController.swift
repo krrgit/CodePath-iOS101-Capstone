@@ -24,14 +24,18 @@ class SplitComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Update the columns if splitToEdit exists
+        // Get the columns from the split
+        // Else initialize them
         columns = splitToEdit?.columns ?? columns
+        
+        print("🍏Compose", splitToEdit?.title, "logs:", columns[0].logs.count)
         
         // Update Table values
         columnsTableView.isEditing = true
         columnsTableView.dataSource = self
         columnsTableView.tableFooterView = addExerciseButton
         columnsTableView.layer.cornerRadius = 10.0
+        
         
         if splitToEdit != nil {
             self.title = "Edit Split"
@@ -83,16 +87,20 @@ class SplitComposeViewController: UIViewController {
             UpdateColumnNames()
             split = Split(title: title, columns: self.columns)
         }
+        
         // 5.
         onComposeSplit?(split)
         // 6.
         dismiss(animated: true)
+        splitToEdit = nil
     }
     
     // Add Column
     @IBAction func didTapAddExerciseButton(_ sender: Any) {
         UpdateColumnNames()
-        columns.append(Column(title:""))
+        let logCount = Split.getLogCount()
+        print("🍏 Add exercise with " + String(logCount) + " logs")
+        columns.append(Column(title:"",logs: Array(repeating: "", count: logCount)))
         columnsTableView.reloadSections(IndexSet(integer: 0), with: .none)
     }
     

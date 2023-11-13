@@ -44,6 +44,28 @@ struct Split: Codable {
 // MARK: - Task + UserDefaults
 extension Split {
     
+    static func getLogCount() -> Int{
+        // 1.
+        let defaults = UserDefaults.standard
+        // 2.
+        if let data = defaults.data(forKey: "logCount") {
+            // 3.
+            let decodedLogCount = try! JSONDecoder().decode(Int.self, from: data)
+            // 4.
+            return decodedLogCount
+        }
+        return 0
+    }
+    
+    static func setLogCount(logCount: Int) {
+        // 1.
+        let defaults = UserDefaults.standard
+        // 2.
+        let encodedData = try! JSONEncoder().encode(logCount)
+        // 3.
+        defaults.set(encodedData, forKey: "logCount")
+    }
+    
 
     // Given an array of tasks, encodes them to data and saves to UserDefaults.
     static func save(_ splits: [Split]) {

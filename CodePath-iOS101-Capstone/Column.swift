@@ -14,7 +14,14 @@ struct Column: Codable {
     
     init(title: String, logs: [String]? = nil) {
         self.title = title
-        self.logs = logs ?? ["1", "0"]
+        self.logs = logs ?? []
+        
+        let logCount = Split.getLogCount()
+        
+        if (self.logs.isEmpty && logCount != 0) {
+            let logCount = Split.getLogCount()
+            self.logs = Array(repeating: "", count: logCount)
+        }
     }
     
 }

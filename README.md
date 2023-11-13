@@ -57,7 +57,8 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 * [ ] User can delete a log of a certain day
 * [ ] User can add notes on a certain workout log
 * [ ] User can add comments to a log 
-* [x] Log tables across a split scroll simultaneously 
+* [x] Log tables across a split scroll simultaneously
+* [ ] Edits to logs are stored
 
 - [x] [Compose Split Screen]
 * [x] User can name a split

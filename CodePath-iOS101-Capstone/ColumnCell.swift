@@ -7,18 +7,29 @@
 
 import UIKit
 
-class ColumnCell: UICollectionViewCell, UITableViewDelegate {
+// Called when the a log is added/removed to the database
+// Used to update the Log Table
+protocol LogUpdateDelegate: AnyObject {
+    func logViewDidUpdate()
+}
+
+
+class ColumnCell: UICollectionViewCell, UITableViewDelegate, LogUpdateDelegate {
     weak var scrollDelegate: LogScrollDelegate?
-    
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var column: Column!
     
+    func logViewDidUpdate() {
+        reloadLogs()
+    }
+    
     override func awakeFromNib() {
         tableView.dataSource = self
         tableView.delegate = self
+        LogViewController.LogView.logUpdateDelegate = self
     }
     
     
@@ -26,22 +37,28 @@ class ColumnCell: UICollectionViewCell, UITableViewDelegate {
 //        print("configure " + column.title)
         self.column = column
         titleLabel.text = column.title
+        
+    }
+    
+    func reloadLogs() {
+        print("Reload Logs! count: ", column.logs.count)
+        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
 }
 
 extension ColumnCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("log count", column.logs.count, " logs | Log Count:", Split.getLogCount())
         return column.logs.count
     }
     
     // Spawn Log Entry
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LogCell", for: indexPath) as! LogCell
-        
-        print("Log Entry")
         // Configure the cell
         let log = column.logs[indexPath.row]
         cell.configure(text: log)
+
         return cell
 
     }
@@ -52,7 +69,7 @@ extension ColumnCell: UITableViewDataSource {
 extension ColumnCell: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("Scroll")
+//        print("Scroll")
         // Here, you get the vertical offset of the collection view's content
         let yOffset = scrollView.contentOffset.y
         

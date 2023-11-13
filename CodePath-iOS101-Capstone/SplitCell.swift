@@ -16,7 +16,7 @@ class SplitCell: UITableViewCell, LogScrollDelegate {
     // Syncronizes the scrolls between the log tables
     func logViewDidScroll(_ tableView: UITableView, yOffset: Double) {
         for cell in collectionView.visibleCells {
-            if var column = cell as? ColumnCell {
+            if let column = cell as? ColumnCell {
                 column.tableView.contentOffset.y = yOffset
             }
         }
@@ -54,7 +54,6 @@ class SplitCell: UITableViewCell, LogScrollDelegate {
     private func update(with split: Split) {
         // 1.
         titleLabel.text = split.title
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -83,12 +82,13 @@ extension SplitCell: UICollectionViewDataSource {
     // Instantiate column cells
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColumnCell", for: indexPath) as! ColumnCell
-    
+        
         // Configure the cell
         let column = split.columns[indexPath.row]
         cell.configure(with: column)
         
         // Subscribe scrollDelegate to all the scroll events of all tables
+        // This will keep the scroll of all tables in sync
         cell.scrollDelegate = self
 
         return cell
@@ -99,7 +99,6 @@ extension SplitCell: UICollectionViewDataSource {
 
 extension SplitCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("Scroll")
         // Here, you get the vertical offset of the collection view's content
         let yOffset = scrollView.contentOffset.y
         

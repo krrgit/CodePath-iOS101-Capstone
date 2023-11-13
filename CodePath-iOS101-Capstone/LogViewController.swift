@@ -8,15 +8,23 @@
 import UIKit
 
 class LogViewController: UIViewController {
+    
+    static let LogView = LogViewController.self
+    
+    static weak var logUpdateDelegate: LogUpdateDelegate?
 
     @IBOutlet weak var addLogButton: UIBarButtonItem!
     @IBOutlet weak var newSplitView: UIView!
     @IBOutlet weak var tableView: UITableView!
     // The main tasks array initialized with a default value of an empty array.
     var splits = [Split]()
+    var logCount: Int = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logCount = Split.getLogCount()
 
         // Hide top cell separator
         tableView.tableHeaderView = UIView()
@@ -30,11 +38,6 @@ class LogViewController: UIViewController {
         //    - tableView(_:commit:forRowAt:)
         tableView.dataSource = self
         tableView.delegate = self
-        
-
-        // Set table view delegate
-        // Needed to detect row selection: tableView(_:didSelectRowAt:)
-//        tableView.delegate = self
     }
     
     // Refresh the tasks list each time the view appears in case any tasks were updated on the other tab.
@@ -47,16 +50,38 @@ class LogViewController: UIViewController {
     
     @IBAction func didTapNewLogButton(_ sender: Any) {
         AddLogToSplits()
+//        LogViewController.logUpdateDelegate?.logViewDidUpdate()
     }
     
     func AddLogToSplits() {
+        logCount += 1
+        Split.setLogCount(logCount: logCount)
+        
+        // Add it to the database
         for s in 0..<splits.count {
             for c in 0..<splits[s].columns.count {
                 splits[s].columns[c].logs.insert("0", at: 0)
             }
         }
         Split.save(splits)
-        refreshSplits()
+        UpdateSubViews()
+    }
+    
+    private func UpdateSubViews() {
+        print("Update SubViews")
+        // Update the views with the new data
+        for (s, cell) in tableView.visibleCells.enumerated() {
+            if let splitCell = cell as? SplitCell {
+                splitCell.configure(with: splits[s])
+                
+                for (c,subCell) in splitCell.collectionView.visibleCells.enumerated() {
+                    if let columnCell = subCell as? ColumnCell {
+                        columnCell.configure(with: splits[s].columns[c])
+                        columnCell.reloadLogs()
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func didTapNewSplitButton(_ sender: Any) {
@@ -85,6 +110,8 @@ class LogViewController: UIViewController {
                     print("split composed", split)
                     split.save()
                     self?.refreshSplits()
+                    self?.UpdateSubViews()
+                    
                     
                 }
             }
@@ -121,6 +148,7 @@ extension LogViewController: UITableViewDataSource {
     //    ii. Refresh the tasks list to reflect the updates with the saved task.
     // 4. Return the configured cell.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("Spawn Split")
         // 1.
         let cell = tableView.dequeueReusableCell(withIdentifier: "SplitCell", for: indexPath) as! SplitCell
         // 2.
@@ -141,8 +169,18 @@ extension LogViewController: UITableViewDataSource {
         if editingStyle == .delete {
             // 2.
             splits.remove(at: indexPath.row)
+            
+            // Reset the Logs if there are no splits
+            if splits.isEmpty {
+                print("🍏Clear logs")
+                print("🍏Clear splits", splits.count)
+                logCount = 0
+                Split.setLogCount(logCount: logCount)
+            }
+            
             // 3.
             Split.save(splits)
+            
             // 4.
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
