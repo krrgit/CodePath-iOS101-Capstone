@@ -68,6 +68,28 @@ class LogViewController: UIViewController, LogEntryUpdateDelegate {
         AddLogToSplits()
     }
     
+    @IBAction func didTapDeleteLogButton(_ sender: Any) {
+        print("🍏Delete Tap")
+        DeleteLastLogInSplits()
+    }
+    
+    func DeleteLastLogInSplits() {
+        if splits.isEmpty || logCount <= 1 {
+            return
+        }
+        logCount -= 1
+        Split.setLogCount(logCount: logCount)
+        
+        // Add it to the database
+        for s in 0..<splits.count {
+            for c in 0..<splits[s].columns.count {
+                splits[s].columns[c].deleteLog()
+            }
+        }
+        Split.save(splits)
+        UpdateSubViews()
+    }
+    
     func AddLogToSplits() {
         if splits.isEmpty {
             return
@@ -99,6 +121,7 @@ class LogViewController: UIViewController, LogEntryUpdateDelegate {
                 }
             }
         }
+        refreshSplits()
     }
     
     @IBAction func didTapNewSplitButton(_ sender: Any) {
@@ -141,7 +164,7 @@ class LogViewController: UIViewController, LogEntryUpdateDelegate {
 //        // 4.
 //        emptyStateLabel.isHidden = !tasks.isEmpty
 //        // 5.
-        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        tableView.reloadSections(IndexSet(integer: 0), with: .none)
     }
 }
 

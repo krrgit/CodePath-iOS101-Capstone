@@ -25,7 +25,6 @@ struct Column: Codable {
     }
     
     mutating func addLog() {
-        
         if title.contains("Log") {
             // Log Column add current log
             let logNum = Split.getLogCount()
@@ -44,6 +43,13 @@ struct Column: Codable {
             // Exercise Column
             self.logs.insert("", at: 0)
         }
+    }
+    
+    mutating func deleteLog() {
+        if logs.isEmpty {
+            return
+        }
+        self.logs.remove(at: 0)
     }
     
 }
