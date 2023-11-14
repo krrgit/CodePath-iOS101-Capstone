@@ -95,6 +95,9 @@
                                                                                             <rect key="frame" x="6" y="4" width="116" height="22"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                             <textInputTraits key="textInputTraits"/>
+                                                                                            <connections>
+                                                                                                <action selector="didLogTextEditEnd:" destination="lSC-am-29z" eventType="editingDidEnd" id="3Al-Dz-ScL"/>
+                                                                                            </connections>
                                                                                         </textField>
                                                                                     </subviews>
                                                                                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -243,7 +246,7 @@
                                 <rect key="frame" x="20" y="148.66666666666669" width="353" height="673.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="ePA-Cd-dQC">
-                                    <rect key="frame" x="0.0" y="121.33333206176758" width="353" height="62"/>
+                                    <rect key="frame" x="0.0" y="121.66666793823242" width="353" height="62"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fx-IC-SZY" userLabel="Add Split">
@@ -272,14 +275,14 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ColumnNameCell" id="dPy-nX-54Q" customClass="ColumnNameCell" customModule="CodePath_iOS101_Capstone" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="353" height="43.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="50" width="353" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dPy-nX-54Q" id="vuJ-Zq-MRg">
-                                            <rect key="frame" x="0.0" y="0.0" width="353" height="43.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Exercise" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="IbS-CK-Om4">
-                                                    <rect key="frame" x="20" y="11.999999999999998" width="313" height="19.333333333333329"/>
+                                                    <rect key="frame" x="20" y="12.000000000000002" width="313" height="19.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>

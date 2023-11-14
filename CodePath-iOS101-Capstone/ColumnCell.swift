@@ -7,35 +7,30 @@
 
 import UIKit
 
-// Called when the a log is added/removed to the database
-// Used to update the Log Table
-protocol LogUpdateDelegate: AnyObject {
-    func logViewDidUpdate()
-}
 
 
-class ColumnCell: UICollectionViewCell, UITableViewDelegate, LogUpdateDelegate {
+
+class ColumnCell: UICollectionViewCell, UITableViewDelegate{
     weak var scrollDelegate: LogScrollDelegate?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var column: Column!
-    
-    func logViewDidUpdate() {
-        reloadLogs()
-    }
+    var s: Int!
+    var c: Int!
     
     override func awakeFromNib() {
         tableView.dataSource = self
         tableView.delegate = self
-        LogViewController.LogView.logUpdateDelegate = self
     }
     
     
-    func configure(with column: Column) {
+    func configure(with column: Column, s: Int, c: Int) {
 //        print("configure " + column.title)
         self.column = column
+        self.s = s
+        self.c = c
         titleLabel.text = column.title
         
         tableView.reloadSections(IndexSet(integer: 0), with: .none)
@@ -59,7 +54,7 @@ extension ColumnCell: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LogCell", for: indexPath) as! LogCell
         // Configure the cell
         let log = column.logs[indexPath.row]
-        cell.configure(text: log)
+        cell.configure(text: log, s: s, c: c, l: indexPath.row)
 
         return cell
 

@@ -27,6 +27,7 @@ class SplitCell: UITableViewCell, LogScrollDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var split: Split!
+    var s: Int!
     
     override func awakeFromNib() {
         // Set the layout of the collection view
@@ -42,16 +43,13 @@ class SplitCell: UITableViewCell, LogScrollDelegate {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
-    func reloadColumns() {
-//        collectionView.reloadSections(IndexSet(integer: 0))
-    }
     
     
-    func configure(with split: Split) {
+    func configure(with split: Split, s: Int) {
         collectionView.dataSource = self
         // 1.
         self.split = split
+        self.s = s
         // 2.
         update(with: split)
         
@@ -94,7 +92,7 @@ extension SplitCell: UICollectionViewDataSource {
         
         // Configure the cell
         let column = split.columns[indexPath.row]
-        cell.configure(with: column)
+        cell.configure(with: column, s: self.s, c: indexPath.row)
         
         // Subscribe scrollDelegate to all the scroll events of all tables
         // This will keep the scroll of all tables in sync

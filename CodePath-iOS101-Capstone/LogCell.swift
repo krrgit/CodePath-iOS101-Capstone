@@ -11,8 +11,20 @@ class LogCell: UITableViewCell {
     
     
     @IBOutlet weak var textField: UITextField!
-    func configure(text: String) {
+    
+    var s: Int!
+    var c: Int!
+    var l: Int!
+    
+    @IBAction func didLogTextEditEnd(_ sender: Any) {
+        LogViewController.LogView.logEntryUpdateDelegate?.LogEntryUpdate(s: s,c: c,l: l,text: textField.text ?? "")
+    }
+    
+    func configure(text: String, s: Int, c: Int, l: Int) {
         textField.text = text
+        self.s = s
+        self.c = c
+        self.l = l
     }
 
     override func awakeFromNib() {

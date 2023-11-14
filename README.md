@@ -53,12 +53,11 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 * [x] User can add the different days of their routine
 * [x] User can remove splits
 * [x] User can add a log
-* [ ] User can input the set, reps, and weight for a exercise
-* [ ] User can delete a log of a certain day
-* [ ] User can add notes on a certain workout log
+* [x] User can input the set, reps, and weight for a exercise
+* [ ] User can delete latest log
 * [ ] User can add comments to a log 
 * [x] Log tables across a split scroll simultaneously
-* [ ] Edits to logs are stored
+* [x] Edits to logs are stored
 
 - [x] [Compose Split Screen]
 * [x] User can name a split
@@ -86,13 +85,13 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 
 **Flow Navigation** (Screen to Screen)
 
-- [ ] Log Screen
+- [x] Log Screen
 * => Compose Split Screen
 - [ ] Graph Screen
 * => None
 - [ ] Statistics Screen
 * => None
-- [ ] Compose Split Screen
+- [x] Compose Split Screen
 * => Log Screen
 
 
@@ -119,5 +118,6 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
 ### Reflection-On-Progress
-* TODO: Fix bug where new exercises added to existing split does not display (they exist, just need to be refreshed)
-* 
+* [x] Fix bug where new exercises added to existing split does not display (they exist, just need to be refreshed) (FI)
+* [x] Save modifications to the logs
+* [] Add button to remove latest log

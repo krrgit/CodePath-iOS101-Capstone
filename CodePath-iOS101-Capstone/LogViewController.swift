@@ -6,20 +6,35 @@
 //
 
 import UIKit
+// Called when the a log entry is edited
+// Used to update the Database
+protocol LogEntryUpdateDelegate: AnyObject {
+    func LogEntryUpdate(s: Int, c: Int, l: Int, text: String)
+}
 
-class LogViewController: UIViewController {
+class LogViewController: UIViewController, LogEntryUpdateDelegate {
     
     static let LogView = LogViewController.self
     
-    static weak var logUpdateDelegate: LogUpdateDelegate?
+    // This delegate is called when text editing of an entry is finished(LogCell.didLogTextEditEnd)
+    // This then calls the LogEntryUpdate function
+    // The log's value is updated, and the split is saved
+    static weak var logEntryUpdateDelegate: LogEntryUpdateDelegate?
 
     @IBOutlet weak var addLogButton: UIBarButtonItem!
     @IBOutlet weak var newSplitView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    
     // The main tasks array initialized with a default value of an empty array.
     var splits = [Split]()
     var logCount: Int = 0
     
+    // Updates a log entry
+    func LogEntryUpdate(s: Int, c: Int, l: Int, text: String) {
+        splits[s].columns[c].logs[l] = text
+        print("🍏Update: s:", s, "c:", c, "l:", l, "text:", text, "stored:", splits[s].columns[c].logs[l])
+        splits[s].save()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +53,9 @@ class LogViewController: UIViewController {
         //    - tableView(_:commit:forRowAt:)
         tableView.dataSource = self
         tableView.delegate = self
+        
+        // allows LogCell to call LogEntryUpdate via the delegate
+        LogViewController.logEntryUpdateDelegate = self
     }
     
     // Refresh the tasks list each time the view appears in case any tasks were updated on the other tab.
@@ -50,7 +68,6 @@ class LogViewController: UIViewController {
     
     @IBAction func didTapNewLogButton(_ sender: Any) {
         AddLogToSplits()
-//        LogViewController.logUpdateDelegate?.logViewDidUpdate()
     }
     
     func AddLogToSplits() {
@@ -60,7 +77,7 @@ class LogViewController: UIViewController {
         // Add it to the database
         for s in 0..<splits.count {
             for c in 0..<splits[s].columns.count {
-                splits[s].columns[c].logs.insert("0", at: 0)
+                splits[s].columns[c].logs.insert("", at: 0)
             }
         }
         Split.save(splits)
@@ -68,19 +85,15 @@ class LogViewController: UIViewController {
     }
     
     private func UpdateSubViews() {
-        print("Update SubViews")
-        // Update the views with the new data
+        print("🍏Update SubViews")
+        // Iterate through Splits and configure with new data
         for (s, cell) in tableView.visibleCells.enumerated() {
             if let splitCell = cell as? SplitCell {
-                splitCell.configure(with: splits[s])
-                
+                splitCell.configure(with: splits[s], s: s)
+                // Iterate through columns and configure with new data
                 for (c,subCell) in splitCell.collectionView.visibleCells.enumerated() {
-                    splitCell.configure(with: splits[s])
-//                    splitCell.reloadColumns()
-                    
                     if let columnCell = subCell as? ColumnCell {
-                        columnCell.configure(with: splits[s].columns[c])
-//                        columnCell.reloadLogs()
+                        columnCell.configure(with: splits[s].columns[c], s: s, c: c)
                     }
                 }
             }
@@ -88,7 +101,7 @@ class LogViewController: UIViewController {
     }
     
     @IBAction func didTapNewSplitButton(_ sender: Any) {
-        print("New Split")
+        print("🍏New Split")
         performSegue(withIdentifier: "ComposeSegue", sender: nil)
     }
     
@@ -114,8 +127,6 @@ class LogViewController: UIViewController {
                     split.save()
                     self?.refreshSplits()
                     self?.UpdateSubViews()
-                    
-                    
                 }
             }
         }
@@ -157,7 +168,7 @@ extension LogViewController: UITableViewDataSource {
         // 2.
         let split = splits[indexPath.row]
         // 3.
-        cell.configure(with: split)
+        cell.configure(with: split, s: indexPath.row)
         // 4.
         return cell
     }
