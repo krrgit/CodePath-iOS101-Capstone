@@ -32,7 +32,6 @@ class LogViewController: UIViewController, LogEntryUpdateDelegate {
     // Updates a log entry
     func LogEntryUpdate(s: Int, c: Int, l: Int, text: String) {
         splits[s].columns[c].logs[l] = text
-        print("🍏Update: s:", s, "c:", c, "l:", l, "text:", text, "stored:", splits[s].columns[c].logs[l])
         splits[s].save()
     }
     
@@ -58,10 +57,9 @@ class LogViewController: UIViewController, LogEntryUpdateDelegate {
         LogViewController.logEntryUpdateDelegate = self
     }
     
-    // Refresh the tasks list each time the view appears in case any tasks were updated on the other tab.
+    // Refresh the list each time the view appears in case any tasks were updated on the other tab.
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         refreshSplits()
     }
     
@@ -71,13 +69,16 @@ class LogViewController: UIViewController, LogEntryUpdateDelegate {
     }
     
     func AddLogToSplits() {
+        if splits.isEmpty {
+            return
+        }
         logCount += 1
         Split.setLogCount(logCount: logCount)
         
         // Add it to the database
         for s in 0..<splits.count {
             for c in 0..<splits[s].columns.count {
-                splits[s].columns[c].logs.insert("", at: 0)
+                splits[s].columns[c].addLog()
             }
         }
         Split.save(splits)
@@ -213,4 +214,9 @@ extension LogViewController: UITableViewDelegate {
         performSegue(withIdentifier: "ComposeSegue", sender: selectedSplit)
     }
     
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let logCount = Split.getLogCount() + 1
+//        let headerHeight = 50
+//        return CGFloat(logCount * 30 + (headerHeight))
+//    }
 }

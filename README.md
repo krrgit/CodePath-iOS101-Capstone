@@ -33,19 +33,20 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 
 **Required Must-have Stories**
 
-* User can add the different splits of their routine
-* User can add the workouts per split
-* User can input a log for a certain day
-* User can input the set, reps, and weight for a exercise
-* User can delete a log of a certain day
+* [x] User can add the different splits of their routine
+* [x] User can add the workouts per split
+* [x] User can input a log for a certain day
+* [x] User can input the set, reps, and weight for a exercise
+* [ ] User can delete a log of a certain day
 
 **Optional Nice-to-have Stories**
 
-* User can view their progress as a graph (Reps x Weights, Weights)
-* User can view statistics about their workout over time
-* When new log is added, entries are predicted based on trends
-* User can enter notes on a certain, log, workout, or routine day
-* User can add comments to a log 
+* [ ] User can view their progress as a graph (Reps x Weights, Weights)
+* [ ] User can view statistics about their workout over time
+* [ ] When new log is added, entries are predicted based on trends
+* [ ] User can enter notes on a certain, log, workout, or routine day
+* [ ] User can add comments to a log 
+* [ ] Dates are selected with carousel
 
 ### 2. Screen Archetypes
 
@@ -120,4 +121,5 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 ### Reflection-On-Progress
 * [x] Fix bug where new exercises added to existing split does not display (they exist, just need to be refreshed) (FI)
 * [x] Save modifications to the logs
-* [] Add button to remove latest log
+* [ ] Add button to remove latest log
+* [ ] fix bug where first and second column switch??

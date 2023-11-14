@@ -24,4 +24,26 @@ struct Column: Codable {
         }
     }
     
+    mutating func addLog() {
+        
+        if title.contains("Log") {
+            // Log Column add current log
+            let logNum = Split.getLogCount()
+            self.logs.insert(String(logNum), at: 0)
+            
+        } else if title.contains("Date") {
+            // Date Column adds current date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM. dd, yyyy"
+
+            let currentDate = Date()
+            let formattedDate = dateFormatter.string(from: currentDate)
+            
+            self.logs.insert(formattedDate, at: 0)
+        }else {
+            // Exercise Column
+            self.logs.insert("", at: 0)
+        }
+    }
+    
 }

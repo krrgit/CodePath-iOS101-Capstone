@@ -33,9 +33,9 @@ class SplitCell: UITableViewCell, LogScrollDelegate {
         // Set the layout of the collection view
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize(width: 150, height: 180)
+//        flowLayout.itemSize = CGSize(width: 110, height: 132)
         flowLayout.minimumLineSpacing = 2.0
-        flowLayout.minimumInteritemSpacing = 5.0
+        flowLayout.minimumInteritemSpacing = 2.0
         self.collectionView.collectionViewLayout = flowLayout
         self.collectionView.showsHorizontalScrollIndicator = false
         
@@ -60,6 +60,18 @@ class SplitCell: UITableViewCell, LogScrollDelegate {
     private func update(with split: Split) {
         // 1.
         titleLabel.text = split.title
+        // 2.
+        setCollectionViewHeight()
+    }
+    
+    private func setCollectionViewHeight() {
+        let headerHeight = 29
+        let logCount = Split.getLogCount()
+        let logHeight = 30
+        
+        var size = collectionView.frame.size
+        size.height = CGFloat(headerHeight + (logCount*logHeight))
+        collectionView.frame.size = size
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -70,11 +82,13 @@ class SplitCell: UITableViewCell, LogScrollDelegate {
 extension SplitCell: UICollectionViewDelegateFlowLayout {
     // Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if (split.columns[indexPath.row].title == "Log #") {
-            return CGSize(width:64, height:128)
-
-        }
-        return CGSize(width:110, height:128)
+//        if (split.columns[indexPath.row].title == "Log #") {
+//            return CGSize(width:64, height:128)
+//
+//        }
+//        return CGSize(width: 110, height: 132)
+        print("🍏 collectionView height:", collectionView.visibleSize.height)
+        return CGSize(width: 110, height: collectionView.visibleSize.height)
     }
     
 }

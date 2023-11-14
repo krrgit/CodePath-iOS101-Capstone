@@ -18,7 +18,7 @@ class SplitComposeViewController: UIViewController {
     // passing in the split as an argument so it can be used by whoever presented the SplitComposeViewController.
     var onComposeSplit: ((Split) -> Void)? = nil
     
-    var columns: [Column] = [Column(title: "Start Date"), Column(title: "Log #"), Column(title: "Exer 1")]
+    var columns: [Column] = [Column(title: "Date"), Column(title: "Log #"), Column(title: "Exer 1")]
     
     
     override func viewDidLoad() {
