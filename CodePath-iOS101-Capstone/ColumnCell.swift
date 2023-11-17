@@ -32,7 +32,8 @@ class ColumnCell: UICollectionViewCell, UITableViewDelegate{
         self.c = c
         titleLabel.text = column.title
         
-        tableView.reloadSections(IndexSet(integer: 0), with: .none)
+//        tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        tableView.reloadData()
     }
     
     func reloadLogs() {

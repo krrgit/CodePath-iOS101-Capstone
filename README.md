@@ -37,7 +37,7 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 * [x] User can add the workouts per split
 * [x] User can input a log for a certain day
 * [x] User can input the set, reps, and weight for a exercise
-* [ ] User can delete a log of a certain day
+* [x] User can delete a log of a certain day
 
 **Optional Nice-to-have Stories**
 
@@ -55,7 +55,7 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 * [x] User can remove splits
 * [x] User can add a log
 * [x] User can input the set, reps, and weight for a exercise
-* [ ] User can delete latest log
+* [x] User can delete latest log
 * [ ] User can add comments to a log 
 * [x] Log tables across a split scroll simultaneously
 * [x] Edits to logs are stored

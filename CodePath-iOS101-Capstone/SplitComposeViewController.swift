@@ -39,6 +39,7 @@ class SplitComposeViewController: UIViewController {
         
         if splitToEdit != nil {
             self.title = "Edit Split"
+            self.titleField.text = splitToEdit?.title
         }
     }
     

@@ -53,7 +53,7 @@ class SplitCell: UITableViewCell, LogScrollDelegate {
         // 2.
         update(with: split)
         
-        collectionView.reloadSections(IndexSet(integer: 0))
+        collectionView.reloadData()
     }
     
        
@@ -66,7 +66,8 @@ class SplitCell: UITableViewCell, LogScrollDelegate {
     
     private func setCollectionViewHeight() {
         let headerHeight = 29
-        let logCount = Split.getLogCount()
+        var logCount = Split.getLogCount()
+        logCount = logCount == 0 ? 1 : logCount
         let logHeight = 30
         
         var size = collectionView.frame.size

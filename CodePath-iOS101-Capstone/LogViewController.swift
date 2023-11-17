@@ -31,8 +31,23 @@ class LogViewController: UIViewController, LogEntryUpdateDelegate {
     
     // Updates a log entry
     func LogEntryUpdate(s: Int, c: Int, l: Int, text: String) {
+        // Set the data
         splits[s].columns[c].logs[l] = text
+        // Save it to the database
         splits[s].save()
+        
+        // Update the SubView carrying the column data
+        // This is so when the column is rerendered, it shows the new data
+        let cell = tableView.visibleCells[s]
+        if let splitCell = cell as? SplitCell {
+            splitCell.configure(with: splits[s], s: s)
+            // Iterate through columns and configure with new data
+            for (c,subCell) in splitCell.collectionView.visibleCells.enumerated() {
+                if let columnCell = subCell as? ColumnCell {
+                    columnCell.configure(with: splits[s].columns[c], s: s, c: c)
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -74,7 +89,7 @@ class LogViewController: UIViewController, LogEntryUpdateDelegate {
     }
     
     func DeleteLastLogInSplits() {
-        if splits.isEmpty || logCount <= 1 {
+        if splits.isEmpty || logCount <= 0 {
             return
         }
         logCount -= 1
