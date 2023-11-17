@@ -7,9 +7,10 @@ Original App Design Project - README Template
 
 1. [Overview](#Overview)
 2. [Product Spec](#Product-Spec)
-3. [Wireframes](#Wireframes)
-4. [Schema](#Schema)
-5. [Reflection on Progress](#Reflection-on-Progress)
+3. [Video Walkthrough](#Video-Walkthrough)
+4. [Wireframes](#Wireframes)
+5. [Schema](#Schema)
+6. [Reflection on Progress](#Reflection-on-Progress)
 
 ## Overview
 
@@ -37,7 +38,7 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 * [x] User can add the workouts per split
 * [x] User can input a log for a certain day
 * [x] User can input the set, reps, and weight for a exercise
-* [x] User can delete a log of a certain day
+* [x] User can delete latest log
 
 **Optional Nice-to-have Stories**
 
@@ -52,13 +53,14 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 
 - [x] [Log Screen]
 * [x] User can add the different days of their routine
+* [x] User can edit splits
 * [x] User can remove splits
 * [x] User can add a log
 * [x] User can input the set, reps, and weight for a exercise
 * [x] User can delete latest log
-* [ ] User can add comments to a log 
 * [x] Log tables across a split scroll simultaneously
 * [x] Edits to logs are stored
+* [ ] User can add comments to a log 
 
 - [x] [Compose Split Screen]
 * [x] User can name a split
@@ -95,7 +97,9 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 - [x] Compose Split Screen
 * => Log Screen
 
-
+## Video Walkthrough
+![](https://github.com/krrgit/CodePath-iOS101-Capstone/blob/main/capstonedemo2.gif)
+![](https://github.com/krrgit/CodePath-iOS101-Capstone/blob/main/capstonedemo1.gif)
 
 ## Wireframes
 <img src="https://github.com/krrgit/CodePath-iOS101-Capstone/blob/main/wireframe.png" width=600>
@@ -121,5 +125,6 @@ An app tailored for fitness enthusiasts, specifically designed to track and moni
 ### Reflection-On-Progress
 * [x] Fix bug where new exercises added to existing split does not display (they exist, just need to be refreshed) (FI)
 * [x] Save modifications to the logs
-* [ ] Add button to remove latest log
-* [ ] fix bug where first and second column switch??
+* [x] Add button to remove latest log
+* [x] fix bug where first and second column switch
+* [x] Added all the required features
